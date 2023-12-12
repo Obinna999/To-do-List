@@ -1,0 +1,103 @@
+form {
+    z-index: 99;
+    display: flex;
+    justify-content: center;
+    padding: 20px; 
+    border-radius: 10px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+}
+* {
+    font-size: 1rem;
+}
+#container {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    overflow: hidden;
+    background: rgb(205, 147, 133);
+    z-index: 1; 
+}
+body {
+    position: relative;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+.waves-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 200px;
+    overflow: hidden;
+}
+
+
+
+.wave {
+    position: absolute;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background-repeat: repeat no-repeat;
+    background-position: 0 bottom;
+    transform-origin: center bottom;
+}
+
+.wave1 {
+    background-image: url('{{ url_for('static', filename='1.png') }}');
+    background-size: 50% 80px;
+    animation: animate1 12s linear infinite;
+}
+
+.wave2 {
+    background-image: url('{{ url_for('static', filename='2.png') }}');
+    background-size: 50% 100px;
+    animation: animate2 18s linear infinite;
+}
+
+.wave3 {
+    background-image: url('{{ url_for('static', filename='3.png') }}');
+    background-size: 50% 80px;
+    animation: animate3 24s linear infinite;
+}
+
+@keyframes animate1 {
+    0% {
+        transform: translateX(0) translateZ(0) scaleY(1);
+    }
+    50% {
+        transform: translateX(-25%) translateZ(0) scaleY(0.5);
+    }
+    100% {
+        transform: translateX(-50%) translateZ(0) scaleY(1);
+    }
+}
+
+@keyframes animate2 {
+    0% {
+        transform: translateX(0) translateZ(0) scaleY(1);
+    }
+    50% {
+        transform: translateX(-25%) translateZ(0) scaleY(0.5);
+    }
+    100% {
+        transform: translateX(-50%) translateZ(0) scaleY(1);
+    }
+}
+
+@keyframes animate3 {
+    0% {
+        transform: translateX(0) translateZ(0) scaleY(1);
+    }
+    50% {
+        transform: translateX(-25%) translateZ(0) scaleY(0.5);
+    }
+    100% {
+        transform: translateX(-50%) translateZ(0) scaleY(1);
+    }
+}

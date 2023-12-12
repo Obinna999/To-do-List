@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="path/to/your/css/file.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/main.css')}}">
+    <title>To Do List</title>
+</head>
+<body class="text-center" id="container"> 
+    <div class="mx-auto"> 
+        <form class="row g-3" action="/add" method="post">
+            <div class="col-auto">
+                <label for="inputPassword2" class="visually-hidden">Add Task</label>
+                <input type="password" class="form-control" id="inputPassword2" placeholder="Add Task">
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary mb-3">Add Task</button>
+            </div>
+        </form>
+
+        {% for task in tasks %}
+            <div class="text-center"> 
+                <label class="form-check-label" for="flexSwitchCheckDefault">{{ task.title }}</label>
+                <input name="name" required class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                <a href="{{ url_for('delete', task_id=task.id) }}" class="text-decoration-none">Delete</a>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="waves-container">
+            <div class="wave wave1" style="background-image: url('{{ url_for('static', filename='1.png') }}');"></div>
+            <div class="wave wave2" style="background-image: url('{{ url_for('static', filename='2.png') }}');"></div>
+            <div class="wave wave3" style="background-image: url('{{ url_for('static', filename='3.png') }}');"></div>
+        </div>        
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
